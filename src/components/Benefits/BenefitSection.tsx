@@ -12,7 +12,7 @@ interface Props {
     imageAtRight?: boolean;
 }
 
-const containerVariants: Variants = {
+const containerVariants = {
     offscreen: {
         opacity: 0,
         y: 100
@@ -21,14 +21,14 @@ const containerVariants: Variants = {
         opacity: 1,
         y: 0,
         transition: {
-            type: "spring",
+            type: "spring" as const,
             bounce: 0.2,
             duration: 0.9,
             delayChildren: 0.2,
             staggerChildren: 0.1,
         }
     }
-};
+} satisfies Variants;
 
 export const childVariants = {
     offscreen: {
@@ -39,12 +39,12 @@ export const childVariants = {
         opacity: 1,
         x: 0,
         transition: {
-            type: "spring",
+            type: "spring" as const,
             bounce: 0.2,
             duration: 1,
         }
     },
-};
+} satisfies Variants;
 
 const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
     const { title, description, imageSrc, bullets } = benefit;
